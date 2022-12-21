@@ -1,0 +1,39 @@
+---
+import Section from "./Section.astro";
+import { Image } from "@astrojs/image/components";
+
+const images = [
+	"/images/BeerHand.jpg",
+	"/images/TheOutsiderAvoToast2.jpg",
+	"/images/chosenone.jpeg",
+	"/images/EspressoPour.jpg",
+	"/images/LattePour.jpg",
+	"/images/PourOver.jpg",
+	"/images/image-asset.jpeg",
+	"/images/Merch.jpg",
+];
+---
+
+<Section
+	sectionTitle="Gallery section"
+	classes="grid gap-12 md:gap-20 place-items-center"
+>
+	<h2 class="underline text-4xl tracking-wide block text-center">
+		Order To Go Here.
+	</h2>
+
+	<div class="grid grid-cols-2 gap-2 md:gap-6 place-items-center">
+		{
+			images.map((img) => (
+				<Image
+					src={img}
+					width="600"
+					height="600"
+					alt="coffee stuffs"
+					format="avif"
+					quality={80}
+				/>
+			))
+		}
+	</div>
+</Section>

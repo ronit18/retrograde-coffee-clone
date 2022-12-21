@@ -2,7 +2,11 @@
 import Layout from "../layouts/Layout.astro";
 import Welcome from "../components/Welcome.astro";
 import { Image } from "@astrojs/image/components";
-import Contactus from "../components/Contactus.astro";
+import Gallery from "../components/Gallery.astro";
+import Section from "../components/Section.astro";
+import Bigimage from "../components/Bigimage.astro";
+import CheckOut from "../components/CheckOut.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Retrograde Coffee">
@@ -17,8 +21,32 @@ import Contactus from "../components/Contactus.astro";
 			class="absolute inset-0 object-cover h-screen -z-10"
 		/>
 	</div>
-	<main class="p-4 grid gap-12 text-rg-gray leading-5">
+	<main class="grid gap-12 text-rg-gray leading-5">
 		<Welcome />
-		<Contactus />
+		<CheckOut />
+		<Gallery />
+		<Section
+			sectionTitle="newsletter signup"
+			classes="grid gap-8 block text-center place-items-center"
+			><button
+				class="bg-black max-w-fit hover:opacity-80 transition-opacity text-base text-white"
+				>SignUp</button
+			><p class="text-xl">
+				Get updated first on new brew releases, menu items, and shop
+				news
+			</p>
+
+			<h2 class="text-3xl">
+				Follow us <span class="underline">@RetrogradeCoffee</span>
+			</h2>
+		</Section>
+		<Bigimage />
+		<Contact />
 	</main>
 </Layout>
+
+<style>
+	body {
+		overflow-x: hidden !important;
+	}
+</style>

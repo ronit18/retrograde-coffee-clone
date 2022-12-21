@@ -1,0 +1,12 @@
+---
+import { slugify } from "../components/ts/utils";
+interface Props {
+	sectionTitle: string;
+	classes?: string;
+}
+const { sectionTitle, classes } = Astro.props as Props;
+---
+
+<section aria-label={slugify(sectionTitle)} class={classes}>
+	<slot />
+</section>
