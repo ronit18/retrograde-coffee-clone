@@ -1,8 +1,46 @@
 ---
 import contactInfo from "../components/data/contact.json";
 import Section from "./Section.astro";
+import { Image } from "@astrojs/image/components";
 ---
 
-<Section sectionTitle="Contact Us" classes="grid gap-12">
-	<h2 class="uppercase">Hello</h2>
+<Section
+	sectionTitle="Contact Us"
+	classes="grid gap-12 max-w-screen-lg mx-auto"
+>
+	<h2 class="uppercase text-3xl tracking-wide sr-only">Contact Us</h2>
+	<div class="grid gap-8 text-center">
+		<h2 class="uppercase text-3xl tracking-wide">Contact</h2>
+		<div class="grid gap-2">
+			<a class="underline" href={contactInfo.phone.href}
+				>{contactInfo.phone.text}</a
+			>
+			<a class="underline" href={contactInfo.email.href}
+				>{contactInfo.email.text}</a
+			>
+		</div>
+	</div>
+
+	<div class="flex flex-col md:flex-row justify-center md:justify-between">
+		<div class="grid gap-8 text-center">
+			<h2 class="uppercase text-3xl tracking-wide">Hours</h2>
+			<div class="grid gap-2">
+				<p>{contactInfo.hours["M-S"]}</p>
+				<p>{contactInfo.hours.Sunday}</p>
+			</div>
+		</div>
+		<div class="grid gap-8 text-center">
+			<br />
+			<h2 class="uppercase text-3xl tracking-wide">Location</h2>
+
+			<div class="grid gap-2">
+				<a
+					class="underline"
+					href={contactInfo.location.href}
+					set:html={contactInfo.location.text}
+				/>
+			</div>
+		</div>
+	</div>
+	<Image src="/images/RGMap.png" width="650" height="450" alt="map" />
 </Section>
